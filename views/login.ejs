@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources/style/estilos.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="registro">
+        <h2>Login</h2> <!--esto es una variable, esta se defina en app.js-->
+        <form action="/auth" method="POST"> 
+            <div class="grupo">
+                <input class="inputs" type="email" name="email">
+                <span class="barra"></span>
+                <label class="label" for=""><i class="far fa-user-circle"></i>email</label>
+            </div>
+            <div class="grupo">
+                <input class="inputs" type="password" name="pass">
+                <span class="barra"></span>
+                <label class="label" for=""><i class="fas fa-unlock-alt"></i>Contraseña</label>
+            </div>
+
+            <button type="submit">Enviar</button>
+        </form>
+        <a href="register" class="btnRegister">Register</a>
+    </div>
+
+    <script src="resources/main.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <% if(typeof alert != "undefined"){ %>
+        <script>
+            Swal.fire({
+                title:'<%= alertTitle %>',
+                text:'<%= alertMessage %>',
+                icon:'<%= alertIcon %>',
+                showConfirmButton: <%= showConfirmButton %>,
+                timer: <%= timer %>
+            }).then(()=>{
+                window.location='<%= ruta %>';
+            })
+        </script>
+    <% } %>
+</body>
+</html>
